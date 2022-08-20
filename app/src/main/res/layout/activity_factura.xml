@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FacturaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="30dp"
+            android:text="Factura"
+            app:layout_constraintBottom_toTopOf="@+id/etplaca"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etcodigo"
+            android:layout_width="283dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="28dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="codigo"
+            app:layout_constraintBottom_toTopOf="@+id/switch2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.429"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/etfecha"
+            android:layout_width="285dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="48dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Fecha"
+            app:layout_constraintBottom_toTopOf="@+id/etcodigo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.436"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/etplaca"
+            android:layout_width="289dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Placa"
+            app:layout_constraintBottom_toTopOf="@+id/etfecha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="290dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="15dp"
+            android:text="Activo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="392dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:text="GUARDAR" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_weight="1"
+                android:text="CONSULTAR" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:text="anular" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginEnd="15dp"
+                android:layout_weight="1"
+                android:text="cancelar" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="80dp"
+            android:onClick="Regresar"
+            android:text="Regresar" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
