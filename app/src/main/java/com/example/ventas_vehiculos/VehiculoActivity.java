@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +24,7 @@ public class VehiculoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehiculo);
-        //
+        //ocultar titulos por defecto y asociar objetos java con xml
         getSupportActionBar().hide();
         jetplaca=findViewById(R.id.etplaca1);
         jetmarca=findViewById(R.id.etmarca1);
@@ -61,6 +62,25 @@ public class VehiculoActivity extends AppCompatActivity {
 
         }
     }
+
+    public void Consultar(View view){
+        placa=jetplaca.getText().toString();
+        if (placa.isEmpty()){
+            Toast.makeText(this, "La placa es requerida", Toast.LENGTH_SHORT).show();
+            jetplaca.requestFocus();
+        }
+        else{
+            SQLiteDatabase db=admin.getReadableDatabase();
+            Cursor fila=db.rawQuery("select * from TblVehiculo where placa='" + placa + "'",null);
+            if (fila.moveToNext()){
+
+            }
+            else
+                Toast.makeText(this, "Vehiculo no registrado", Toast.LENGTH_SHORT).show();
+            db.close();
+        }
+    }
+
 
 
     private void Limpiar_campos(){
