@@ -20,44 +20,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Vehuculo" />
+                android:text="Vehiculo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
             <EditText
                 android:id="@+id/etplaca1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Placa" />
+                android:hint="Placa"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/etmarca1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="marca" />
+                android:hint="Marca"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/etmodelo1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="modelo" />
+                android:hint="Modelo"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/etvalor1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Valor" />
+                android:hint="Valor"
+                android:inputType="textPersonName" />
 
             <Switch
                 android:id="@+id/swactivo1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:checked="true"
                 android:text="Activo" />
 
@@ -65,14 +70,22 @@
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="guardar"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:backgroundTint="#03A9F4"
                 android:onClick="Guardar"
+                android:text="guardar"
                 app:cornerRadius="50dp" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:backgroundTint="#2196F3"
                 android:text="Consultar"
                 app:cornerRadius="50dp" />
 
@@ -80,6 +93,10 @@
                 android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:backgroundTint="#2196F3"
                 android:text="Anular"
                 app:cornerRadius="50dp" />
 
@@ -87,6 +104,10 @@
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:backgroundTint="#2196F3"
                 android:text="Cancelar"
                 app:cornerRadius="50dp" />
 
@@ -94,8 +115,12 @@
                 android:id="@+id/button5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="regresar"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:backgroundTint="#2196F3"
                 android:onClick="Regresar"
+                android:text="regresar"
                 app:cornerRadius="50dp" />
         </LinearLayout>
     </ScrollView>
