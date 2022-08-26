@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_vehiculo_car"
     tools:context=".FacturaActivity">
 
     <LinearLayout
@@ -72,6 +73,7 @@
             android:layout_height="42dp"
             android:layout_marginTop="15dp"
             android:text="Activo"
+            android:checked="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
