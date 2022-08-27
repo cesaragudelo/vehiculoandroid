@@ -17,6 +17,7 @@ public class VehiculoActivity extends AppCompatActivity {
     EditText jetplaca,jetmarca,jetmodelo,jetvalor;
     Switch jetactivovhei;
     long resp;
+    int sw;
     String placa,marca,modelo,valor;
     ClsOpenHelper admin=new ClsOpenHelper(this,"concesionario.db",null,1);
 
@@ -31,6 +32,7 @@ public class VehiculoActivity extends AppCompatActivity {
         jetmodelo=findViewById(R.id.etmodelo1);
         jetvalor=findViewById(R.id.etvalor1);
         jetactivovhei=findViewById(R.id.swactivo1);
+        sw=0;
     }
     public void Guardar(View view){
 
@@ -50,7 +52,15 @@ public class VehiculoActivity extends AppCompatActivity {
             registro.put("marca",marca);
             registro.put("modelo",modelo);
             registro.put("valor",Integer.parseInt(valor));
-            resp=db.insert("TblVehiculo",null,registro);
+            if (sw == 0) {
+                resp = db.insert("TblVehiculo", null, registro);
+            }
+            else {
+                resp = db.update("TblVehiculo", registro, "placa='" + placa + "'", null);
+                sw=0;
+            }
+
+
             if (resp > 0){
                 Toast.makeText(this, "Registro guardado", Toast.LENGTH_SHORT).show();
                 Limpiar_campos();
@@ -66,6 +76,7 @@ public class VehiculoActivity extends AppCompatActivity {
     public void Consultar(View view){
         placa=jetplaca.getText().toString();
         if (placa.isEmpty()){
+            sw=1;
             Toast.makeText(this, "La placa es requerida", Toast.LENGTH_SHORT).show();
             jetplaca.requestFocus();
         }
@@ -73,7 +84,14 @@ public class VehiculoActivity extends AppCompatActivity {
             SQLiteDatabase db=admin.getReadableDatabase();
             Cursor fila=db.rawQuery("select * from TblVehiculo where placa='" + placa + "'",null);
             if (fila.moveToNext()){
-
+                sw=1;
+                jetmarca.setText(fila.getString(1));
+                jetmodelo.setText(fila.getString(2));
+                jetvalor.setText(fila.getString(3));
+                if(fila.getString(4).equals("si"))
+                    jetactivovhei.setChecked(true);
+                else
+                    jetactivovhei.setChecked(false);
             }
             else
                 Toast.makeText(this, "Vehiculo no registrado", Toast.LENGTH_SHORT).show();
@@ -81,7 +99,28 @@ public class VehiculoActivity extends AppCompatActivity {
         }
     }
 
-
+public void cancelar (View view){
+        Limpiar_campos();
+}
+public void Anular(View view){
+        if(sw==0){
+            Toast.makeText(this, "primero debe consultar", Toast.LENGTH_SHORT).show();
+            jetplaca.requestFocus();
+        }
+        else {
+            SQLiteDatabase db=admin.getWritableDatabase();
+            ContentValues registro=new ContentValues();
+            registro.put("activo","no");
+            resp=db.update("TblVehiculo",registro,"placa='" + placa + "'",null);
+            if(resp > 0){
+                Toast.makeText(this, "registro anulado", Toast.LENGTH_SHORT).show();
+                Limpiar_campos();
+            }
+            else {
+                Toast.makeText(this, "error anulando registro", Toast.LENGTH_SHORT).show();
+            }
+        }
+}
 
     private void Limpiar_campos(){
         jetplaca.setText("");
@@ -90,6 +129,7 @@ public class VehiculoActivity extends AppCompatActivity {
         jetmarca.setText("");
         jetactivovhei.setChecked(false);
         jetplaca.requestFocus();
+        sw=0;
     }
 
 

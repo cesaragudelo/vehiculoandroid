@@ -13,6 +13,7 @@ public class FacturaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_factura);
     }
+
     public void Regresar(View view){
         Intent intmain=new Intent(this,MainActivity.class);
         startActivity(intmain);
